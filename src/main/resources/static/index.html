@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Spring Boot Properties</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" type="text/css"	href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+ <style type="text/css">
+ .nowrap { white-space:nowrap;}
+ body {
+    background-image: url("https://projects.spring.io/spring-boot/img/project-icon-large.png");
+    background-position: right top;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+</style>
+</head>
+<body>
+ <div class="container">
+  <script type="text/javascript" src="webjars/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript"	src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>  
+  <script type="text/javascript">
+$(document).ready(function(){
+		
+function propertiesService(filter) {
+		$.ajax({
+			type : "GET",
+			url : "/api/find/"+filter,
+			data : '$format=json',
+			dataType : 'json',
+			success : function(data) {
+				$("#propTable tr").remove();
+				$("#propTable tbody").append("<tr><th>categoria</th><th>subcategoria</th><th>nome</th><th>valor</th><th>descrição</th></tr>");
+				var total=0;
+				$.each(data, function(d, results) {
+				  $("#propTable tbody").append(
+					"<tr>"  
+				    + "<td class=\"text-nowrap\">" 
+				    + results.categoria
+				    + "</td>" + "<td class=\"text-nowrap\">"
+				    + results.subcategoria
+				    + "</td>" + "<td class=\"text-nowrap\">"
+			        + results.nome
+					+ "</td>" + "<td class=\"text-nowrap\">"
+					+ results.valor
+					+ "</td>" + "<td class=\"text-nowrap\">"
+					+ results.descricao
+					+ "</td>" 
+					+ "</tr>")
+					total++;
+				})
+				$("#results").text(total+" propriedades encontradas");
+			}
+		});
+	};
+	
+	var minlength = 2;
+			
+	$("#search").keypress(function(e) {
+		    if(e.which == 13) {
+		        value = $(this).val();
+		        if (value.length >= minlength ) {
+	             propertiesService(value);
+		        }
+		        return false;
+		    }
+	 });
+			
+}); 
+</script>
+
+<div class="jumbotron">
+  <h1><a href="http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html" target="_BLANK">Spring Boot Properties</a></h1>
+   <form>
+	Buscar:
+	<input type="text" id="search" autofocus="autofocus"  class="form-control" />
+   </form>
+   <div id="results"  class="alert alert-info fade in"></div>
+</div>
+<table id="propTable" class="table table-hover">
+ <tbody>
+ </tbody>
+</table>
+</div>
+</body>
+</html>
