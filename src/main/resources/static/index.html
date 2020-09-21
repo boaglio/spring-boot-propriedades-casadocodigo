@@ -3,83 +3,65 @@
 <head>
  <title>Spring Boot Properties</title>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" type="text/css"	href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
- <style type="text/css">
- .nowrap { white-space:nowrap;}
- body {
-    background-image: url("https://projects.spring.io/spring-boot/img/project-icon-large.png");
-    background-position: right top;
-    background-repeat: no-repeat;
-    position: absolute;
-}
-</style>
+ <link rel="stylesheet" type="text/css"	href="webjars/bootstrap/4.5.2/css/bootstrap.min.css" />
+ <link rel="stylesheet" type="text/css"	href="webjars/EasyAutocomplete/1.3.3/dist/easy-autocomplete.themes.css" />
 </head>
 <body>
  <div class="container">
-  <script type="text/javascript" src="webjars/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"	src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>  
+  <script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="webjars/EasyAutocomplete/1.3.3/dist/jquery.easy-autocomplete.js"></script>  
   <script type="text/javascript">
-$(document).ready(function(){
-		
-function propertiesService(filter) {
-		$.ajax({
-			type : "GET",
-			url : "/api/find/"+filter,
-			data : '$format=json',
-			dataType : 'json',
-			success : function(data) {
-				$("#propTable tr").remove();
-				$("#propTable tbody").append("<tr><th>categoria</th><th>subcategoria</th><th>nome</th><th>valor</th><th>descrição</th></tr>");
-				var total=0;
-				$.each(data, function(d, results) {
-				  $("#propTable tbody").append(
-					"<tr>"  
-				    + "<td class=\"text-nowrap\">" 
-				    + results.categoria
-				    + "</td>" + "<td class=\"text-nowrap\">"
-				    + results.subcategoria
-				    + "</td>" + "<td class=\"text-nowrap\">"
-			        + results.nome
-					+ "</td>" + "<td class=\"text-nowrap\">"
-					+ results.valor
-					+ "</td>" + "<td class=\"text-nowrap\">"
-					+ results.descricao
-					+ "</td>" 
-					+ "</tr>")
-					total++;
-				})
-				$("#results").text(total+" propriedades encontradas");
-			}
-		});
-	};
-	
-	var minlength = 2;
-			
-	$("#search").keypress(function(e) {
-		    if(e.which == 13) {
-		        value = $(this).val();
-		        if (value.length >= minlength ) {
-	             propertiesService(value);
-		        }
-		        return false;
-		    }
-	 });
-			
-}); 
-</script>
+	$(document).ready(function () {
 
+		var options = {
+			url: function (filtro) {
+				return '/api/find/';
+			},
+
+			getValue: function (element) {
+				
+				valorPadrao=" "
+				if (element.valor)
+					valorPadrao = "( default: "+element.valor+") "
+					
+				return "["+element.nome + "] <i>" + element.categoria +" </i> - <b>" + element.nome +"</b>  " + valorPadrao + " - "+ element.descricao ;
+			},
+
+			ajaxSettings: {
+				dataType: 'json',
+				method: 'GET',
+				data: {					
+				}
+			},
+
+			preparePostData: function (data) {
+				data.filtro = $('#search').val();
+				return data;
+			},
+
+			theme: "square",
+			
+			list: {
+				maxNumberOfElements: 15
+			},
+			
+			requestDelay: 400
+		};
+		
+		$('#search').easyAutocomplete(options);
+	});
+</script>
 <div class="jumbotron">
-  <h1><a href="http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html" target="_BLANK">Spring Boot Properties</a></h1>
-   <form>
+  <h1>
+   <img alt="Spring" class="block" id="springlogo" src="spring-logo.svg" width="300">
+   <a href="http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html" target="_BLANK">Spring Boot Properties</a>
+  </h1>
+  <form>
 	Buscar:
-	<input type="text" id="search" autofocus="autofocus"  class="form-control" />
-   </form>
-   <div id="results"  class="alert alert-info fade in"></div>
+   <input type="text" id="search" autofocus="autofocus"  class="form-control" />
+  </form>
 </div>
-<table id="propTable" class="table table-hover">
- <tbody>
- </tbody>
-</table>
 </div>
 </body>
 </html>

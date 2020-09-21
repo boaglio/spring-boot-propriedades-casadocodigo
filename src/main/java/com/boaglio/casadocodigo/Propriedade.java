@@ -16,8 +16,6 @@ public class Propriedade {
 
 	private String categoria;
 
-	private String subcategoria;
-
 	public String getNome() {
 		return nome;
 	}
@@ -50,14 +48,6 @@ public class Propriedade {
 		this.categoria = categoria;
 	}
 
-	public String getSubcategoria() {
-		return subcategoria;
-	}
-
-	public void setSubcategoria(String subcategoria) {
-		this.subcategoria = subcategoria;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -85,10 +75,8 @@ public class Propriedade {
 
 	@Override
 	public String toString() {
-		return "Propriedade [nome=" + nome + ", valor=" + valor + ", descricao=" + descricao + ", categoria=" + categoria
-				+ ", subcategoria=" + subcategoria + "]";
+		return "Propriedade [nome=" + nome + ", valor=" + valor + ", descricao=" + descricao + ", categoria="
+				+ categoria + "]";
 	}
 
- 
-	 
 }

@@ -3,7 +3,6 @@
 -- 2016-12
 --
 drop table propriedade IF EXISTS;
-
 CREATE TABLE propriedade (
 id MEDIUMINT NOT NULL AUTO_INCREMENT,
 categoria VARCHAR(200),
@@ -13,12 +12,9 @@ valor VARCHAR(512) default '',
 descricao VARCHAR(1000),
 PRIMARY KEY (id),
 UNIQUE INDEX nome_unique (nome ASC));
-
-
 -- ----------------------------------------
 -- CORE PROPERTIES
 -- ----------------------------------------
-
 -- BANNER
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','BANNER','banner.charset','UTF-8','Banner file encoding'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','BANNER','banner.location','classpath:banner.txt','Banner file location'); 
@@ -27,7 +23,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CO
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','BANNER','banner.image.height','','Height of the banner image in chars (default based on image height)'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','BANNER','banner.image.margin','','Left hand image margin in chars (default 2)'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','BANNER','banner.image.invert','','If images should be inverted for dark terminal themes (default false)'); 
-
 -- LOGGING
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','LOGGING','logging.config','','Location of the logging configuration file. For instance classpath:logback.xml for Logback'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','LOGGING','logging.exception-conversion-word','%wEx','Conversion word used when logging exceptions'); 
@@ -38,25 +33,19 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CO
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','LOGGING','logging.pattern.file','','Appender pattern for output to the file. Only supported with the default logback setup'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','LOGGING','logging.pattern.level','','Appender pattern for log level (default %5p). Only supported with the default logback setup'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','LOGGING','logging.register-shutdown-hook','false','Register a shutdown hook for the logging system when it is initialized'); 
-
 -- AOP
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','AOP','spring.aop.auto','true','Add @EnableAspectJAutoProxy'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','AOP','spring.aop.proxy-target-class','false','Whether subclass-based (CGLIB) proxies are to be created (true) as opposed to standard Java interface-based proxies (false)'); 
-
 -- IDENTITY (ContextIdApplicationContextInitializer)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','IDENTITY','spring.application.index','','Application index'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','IDENTITY','spring.application.name','','Application name'); 
-
 -- ADMIN (SpringApplicationAdminJmxAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','ADMIN','spring.application.admin.enabled','false','Enable admin features for the application'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','ADMIN','spring.application.admin.jmx-name','org.springframework.boot:type=Admin,name=SpringApplication','JMX name of the application admin MBean'); 
-
 -- AUTO-CONFIGURATION
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','AUTO-CONFIGURATION','spring.autoconfigure.exclude','','Auto-configuration classes to exclude'); 
-
 -- SPRING CORE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SPRING CORE','spring.beaninfo.ignore','true','Skip search of BeanInfo classes'); 
-
 -- SPRING CACHE (CacheProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SPRING CACHE','spring.cache.cache-names','','Comma-separated list of cache names to create if supported by the underlying cache manager'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SPRING CACHE','spring.cache.caffeine.spec','','The spec to use to create caches. Check CaffeineSpec for more details on the spec format'); 
@@ -68,23 +57,18 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CO
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SPRING CACHE','spring.cache.jcache.config','','The location of the configuration file to use to initialize the cache manager'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SPRING CACHE','spring.cache.jcache.provider','','Fully qualified name of the CachingProvider implementation to use to retrieve the JSR-107 compliant cache manager. Only needed if more than one JSR-107 implementation is available on the classpath'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SPRING CACHE','spring.cache.type','','Cache type, auto-detected according to the environment by default'); 
-
 -- SPRING CONFIG - using environment property only (ConfigFileApplicationListener)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SPRING CONFIG','spring.config.location','','Config file locations'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SPRING CONFIG','spring.config.name','application','Config file name'); 
-
 -- HAZELCAST (HazelcastProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','HAZELCAST','spring.hazelcast.config','','The location of the configuration file to use to initialize Hazelcast'); 
-
 -- PROJECT INFORMATION (ProjectInfoProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','PROJECT INFORMATION','spring.info.build.location','classpath:META-INF/build-info.properties','Location of the generated build-info.properties file'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','PROJECT INFORMATION','spring.info.git.location','classpath:git.properties','Location of the generated git.properties file'); 
-
 -- JMX
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','JMX','spring.jmx.default-domain','','JMX domain name'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','JMX','spring.jmx.enabled','true','Expose management beans to the JMX domain'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','JMX','spring.jmx.server','mbeanServer','MBeanServer bean name'); 
-
 -- Email (MailProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','Email','spring.mail.default-encoding','UTF-8','Default MimeMessage encoding'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','Email','spring.mail.host','','SMTP server host. For instance smtp.example.com'); 
@@ -95,45 +79,35 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CO
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','Email','spring.mail.protocol','smtp','Protocol used by the SMTP server'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','Email','spring.mail.test-connection','false','Test that the mail server is available on startup'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','Email','spring.mail.username','','Login user of the SMTP server'); 
-
 -- APPLICATION SETTINGS (SpringApplication)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','APPLICATION SETTINGS','spring.main.banner-mode','console','Mode used to display the banner when the application runs'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','APPLICATION SETTINGS','spring.main.sources','','Sources (class name, package name or XML resource location) to include in the ApplicationContext'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','APPLICATION SETTINGS','spring.main.web-environment','','Run the application in a web environment (auto-detected by default)'); 
-
 -- FILE ENCODING (FileEncodingApplicationListener)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','BANNER','spring.mandatory-file-encoding','','Expected character encoding the application must use'); 
-
 -- INTERNATIONALIZATION (MessageSourceAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','INTERNATIONALIZATION','spring.messages.always-use-message-format','false','Set whether to always apply the MessageFormat rules, parsing even messages without arguments'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','INTERNATIONALIZATION','spring.messages.basename','messages','Comma-separated list of basenames, each following the ResourceBundle convention'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','INTERNATIONALIZATION','spring.messages.cache-seconds','-1','Loaded resource bundle files cache expiration, in seconds. When set to -1, bundles are cached forever'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','INTERNATIONALIZATION','spring.messages.encoding','UTF-8','Message bundles encoding'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','INTERNATIONALIZATION','spring.messages.fallback-to-system-locale','true','Set whether to fall back to the system Locale if no files for a specific Locale have been found'); 
-
 -- OUTPUT
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','OUTPUT','spring.output.ansi.enabled','detect','Configure the ANSI output'); 
-
 -- PID FILE (ApplicationPidFileWriter)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','PID FILE','spring.pid.fail-on-write-error','','Fail if ApplicationPidFileWriter is used but it cannot write the PID file'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','PID FILE','spring.pid.file','','Location of the PID file to write (if ApplicationPidFileWriter is used)'); 
-
 -- PROFILES
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','PROFILES','spring.profiles.active','','Comma-separated list of active profiles'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','PROFILES','spring.profiles.include','','Unconditionally activate the specified comma separated profiles'); 
-
 -- SENDGRID (SendGridAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SENDGRID','spring.sendgrid.api-key','','SendGrid api key (alternative to username/password)'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SENDGRID','spring.sendgrid.username','','SendGrid account username'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SENDGRID','spring.sendgrid.password','','SendGrid account password'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SENDGRID','spring.sendgrid.proxy.host','','SendGrid proxy host'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('CORE PROPERTIES','SENDGRID','spring.sendgrid.proxy.port','','SendGrid proxy port'); 
-
-
 -- ----------------------------------------
 -- WEB PROPERTIES
 -- ----------------------------------------
-
 -- EMBEDDED SERVER CONFIGURATION (ServerProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','server.address','','Network address to which the server should bind to'); 
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','server.compression.enabled','false','If response compression is enabled'); 
@@ -211,7 +185,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','server.undertow.direct-buffers','','Allocate buffers outside the Java heap');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','server.undertow.io-threads','','Number of I/O threads to create for the worker');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','server.undertow.worker-threads','','Number of worker threads');
-
 -- FREEMARKER (FreeMarkerAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.freemarker.allow-request-override','false','Set whether HttpServletRequest attributes are allowed to override (hide) controller generated model attributes of the same name');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.freemarker.allow-session-override','false','Set whether HttpSession attributes are allowed to override (hide) controller generated model attributes of the same name');
@@ -230,7 +203,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.freemarker.suffix','','Suffix that gets appended to view names when building a URL');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.freemarker.template-loader-path','classpath:/templates/','Comma-separated list of template paths');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.freemarker.view-names','','White list of view names that can be resolved');
-
 -- GROOVY TEMPLATES (GroovyTemplateAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.groovy.template.allow-request-override','false','Set whether HttpServletRequest attributes are allowed to override (hide) controller generated model attributes of the same name');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.groovy.template.allow-session-override','false','Set whether HttpSession attributes are allowed to override (hide) controller generated model attributes of the same name');
@@ -248,13 +220,10 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.groovy.template.resource-loader-path','classpath:/templates/','Template path');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.groovy.template.suffix','.tpl','Suffix that gets appended to view names when building a URL');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.groovy.template.view-names','','White list of view names that can be resolved');
-
 -- SPRING HATEOAS (HateoasProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.hateoas.use-hal-as-default-json-media-type','true','Specify if application/hal+json responses should be sent to requests that accept application/json');
-
 -- HTTP message conversion
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.converters.preferred-json-mapper','jackson','Preferred JSON mapper to use for HTTP message conversion. Set to "gson" to force the use of Gson when both it and Jackson are on the classpath');
-
 -- HTTP encoding (HttpEncodingProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.encoding.charset','UTF-8','Charset of HTTP requests and responses. Added to the "Content-Type" header if not set explicitly');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.encoding.enabled','true','Enable http encoding support');
@@ -262,7 +231,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.encoding.force-request','','Force the encoding to the configured charset on HTTP requests. Defaults to true when "force" has not been specified');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.encoding.force-response','','Force the encoding to the configured charset on HTTP responses');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.encoding.mapping','','Locale to Encoding mapping');
-
 -- MULTIPART (MultipartProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.multipart.enabled','true','Enable support of multi-part uploads');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.multipart.file-size-threshold','0','Threshold after which files will be written to disk. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size');
@@ -270,7 +238,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.multipart.max-file-size','1Mb','Max file size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.multipart.max-request-size','10Mb','Max request size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.http.multipart.resolve-lazily','false','Whether to resolve the multipart request lazily at the time of file or parameter access');
-
 -- JACKSON (JacksonProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jackson.date-format','','Date format string or a fully-qualified date format class name. For instance yyyy-MM-dd HH:mm:ss');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jackson.default-property-inclusion','','Controls the inclusion of properties during serialization');
@@ -284,14 +251,12 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jackson.serialization.*','','Jackson on/off features that affect the way Java objects are serialized');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jackson.serialization-inclusion','','Controls the inclusion of properties during serialization. Configured with one of the values in Jackson''s JsonInclude.Include enumeration');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jackson.time-zone','','Time zone used when formatting dates. For instance America/Los_Angeles');
-
 -- JERSEY (JerseyProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jersey.application-path','','Path that serves as the base URI for the application. Overrides the value of "@ApplicationPath" if specified');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jersey.filter.order','0','Jersey filter chain order');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jersey.init.*','','Init parameters to pass to Jersey via the servlet or filter');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jersey.servlet.load-on-startup','-1','Load on startup priority of the Jersey servlet');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.jersey.type','servlet','Jersey integration type');
-
 -- SPRING MOBILE DEVICE VIEWS (DeviceDelegatingViewResolverAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mobile.devicedelegatingviewresolver.enable-fallback','false','Enable support for fallback resolution');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mobile.devicedelegatingviewresolver.enabled','false','Enable device view resolver');
@@ -301,10 +266,8 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mobile.devicedelegatingviewresolver.normal-suffix','','Suffix that gets appended to view names for normal devices');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mobile.devicedelegatingviewresolver.tablet-prefix','tablet/','Prefix that gets prepended to view names for tablet devices');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mobile.devicedelegatingviewresolver.tablet-suffix','','Suffix that gets appended to view names for tablet devices');
-
 -- SPRING MOBILE SITE PREFERENCE (SitePreferenceAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mobile.sitepreference.enabled','true','Enable SitePreferenceHandler');
-
 -- MUSTACHE TEMPLATES (MustacheAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mustache.allow-request-override','','Set whether HttpServletRequest attributes are allowed to override (hide) controller generated model attributes of the same name');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mustache.allow-session-override','','Set whether HttpSession attributes are allowed to override (hide) controller generated model attributes of the same name');
@@ -320,7 +283,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mustache.request-context-attribute','','Name of the RequestContext attribute for all views');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mustache.suffix','.html','Suffix to apply to template names');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mustache.view-names','','White list of view names that can be resolved');
-
 -- SPRING MVC (WebMvcProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mvc.async.request-timeout','','Amount of time (in milliseconds) before asynchronous request handling times out');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mvc.date-format','','Date format to use. For instance dd/MM/yyyy');
@@ -339,7 +301,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mvc.throw-exception-if-no-handler-found','false','If a "NoHandlerFoundException" should be thrown if no Handler was found to process a request');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mvc.view.prefix','','Spring MVC view prefix');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.mvc.view.suffix','','Spring MVC view suffix');
-
 -- SPRING RESOURCES HANDLING (ResourceProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.resources.add-mappings','true','Enable default resource handling');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.resources.cache-period','','Cache period for the resources served by the resource handler, in seconds');
@@ -353,7 +314,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.resources.chain.strategy.fixed.paths','/**','Comma-separated list of patterns to apply to the Version Strategy');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.resources.chain.strategy.fixed.version','','Version string to use for the Version Strategy');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.resources.static-locations','classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/','Locations of static resources');
-
 -- SPRING SESSION (SessionProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.session.hazelcast.map-name','spring:session:sessions','Name of the map used to store sessions');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.session.jdbc.initializer.enabled','','Create the required session tables on startup if necessary. Enabled automatically if the default table name is set or a custom schema is configured');
@@ -363,22 +323,17 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.session.redis.flush-mode','','Flush mode for the Redis sessions');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.session.redis.namespace','','Namespace for keys used to store sessions');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.session.store-type','','Session store type');
-
 -- SPRING SOCIAL (SocialWebAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.social.auto-connection-views','false','Enable the connection status view for supported providers');
-
 -- SPRING SOCIAL FACEBOOK (FacebookAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.social.facebook.app-id','','your application''s Facebook App ID');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.social.facebook.app-secret','','your application''s Facebook App Secret');
-
 -- SPRING SOCIAL LINKEDIN (LinkedInAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.social.linkedin.app-id','','your application''s LinkedIn App ID');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.social.linkedin.app-secret','','your application''s LinkedIn App Secret');
-
 -- SPRING SOCIAL TWITTER (TwitterAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.social.twitter.app-id','','your application''s Twitter App ID');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.social.twitter.app-secret','','your application''s Twitter App Secret');
-
 -- THYMELEAF (ThymeleafAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.thymeleaf.cache','true','Enable template caching');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.thymeleaf.check-template','true','Check that the template exists before rendering it');
@@ -392,7 +347,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.thymeleaf.suffix','.html','Suffix that gets appended to view names when building a URL');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.thymeleaf.template-resolver-order','','Order of the template resolver in the chain');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.thymeleaf.view-names','','Comma-separated list of view names that can be resolved');
-
 -- VELOCITY TEMPLATES (VelocityAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.velocity.allow-request-override','false','Set whether HttpServletRequest attributes are allowed to override (hide) controller generated model attributes of the same name');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.velocity.allow-session-override','false','Set whether HttpSession attributes are allowed to override (hide) controller generated model attributes of the same name');
@@ -414,14 +368,10 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.velocity.suffix','.vm','Suffix that gets appended to view names when building a URL');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.velocity.toolbox-config-location','','Velocity Toolbox config location. For instance /WEB-INF/toolbox.xml');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.velocity.view-names','','White list of view names that can be resolved');
-
 -- SPRING WEB SERVICES (WebServicesProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.webservices.path','/services','Path that serves as the base URI for the services');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.webservices.servlet.init','','Servlet init parameters to pass to Spring Web Services');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('WEB PROPERTIES','EMBEDDED SERVER CONFIGURATION','spring.webservices.servlet.load-on-startup','-1','Load on startup priority of the Spring Web Services servlet');
-
-
-
 -- ----------------------------------------
 -- SECURITY PROPERTIES
 -- ----------------------------------------
@@ -444,11 +394,9 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.user.name','user','Default user name');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.user.password','','Password for the default user name. A random password is logged on startup by default');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.user.role','USER','Granted roles for the default user name');
-
 -- SECURITY OAUTH2 CLIENT (OAuth2ClientProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.oauth2.client.client-id','','OAuth2 client id');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.oauth2.client.client-secret','','OAuth2 client secret. A random secret is generated by default');
-
 -- SECURITY OAUTH2 RESOURCES (ResourceServerProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.oauth2.resource.id','','Identifier of the resource');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.oauth2.resource.jwt.key-uri','','The URI of the JWT token. Can be set if the value is not available and the key is public');
@@ -458,16 +406,12 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.oauth2.resource.token-info-uri','','URI of the token decoding endpoint');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.oauth2.resource.token-type','','The token type to send when using the userInfoUri');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.oauth2.resource.user-info-uri','','URI of the user endpoint');
-
 -- SECURITY OAUTH2 SSO (OAuth2SsoProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.oauth2.sso.filter-order','','Filter order to apply if not providing an explicit WebSecurityConfigurerAdapter');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('SECURITY PROPERTIES','SECURITY','security.oauth2.sso.login-path','/login','Path to the login page, i.e. the one that triggers the redirect to the OAuth2 Authorization Server');
-
-
 -- ----------------------------------------
 -- DATA PROPERTIES
 -- ----------------------------------------
-
 -- FLYWAY (FlywayProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','FLYWAY','flyway.baseline-description','','');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','FLYWAY','flyway.baseline-version','1','version to start migration');
@@ -493,7 +437,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','FLYWAY','flyway.url','','JDBC url of the database to migrate. If not set, the primary configured data source is used');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','FLYWAY','flyway.user','','Login user of the database to migrate');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','FLYWAY','flyway.validate-on-migrate','','');
-
 -- LIQUIBASE (LiquibaseProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','LIQUIBASE','liquibase.change-log','classpath:/db/changelog/db.changelog-master.yaml','Change log configuration path');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','LIQUIBASE','liquibase.check-change-log-location','true','Check the change log location exists');
@@ -507,7 +450,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','LIQUIBASE','liquibase.rollback-file','','File to which rollback SQL will be written when an update is performed');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','LIQUIBASE','liquibase.url','','JDBC url of the database to migrate. If not set, the primary configured data source is used');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','LIQUIBASE','liquibase.user','','Login user of the database to migrate.');
-
 -- COUCHBASE (CouchbaseProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','COUCHBASE','spring.couchbase.bootstrap-hosts','','Couchbase nodes (host or IP address) to bootstrap from');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','COUCHBASE','spring.couchbase.bucket.name','default','Name of the bucket to connect to');
@@ -523,10 +465,8 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','COUCHBASE','spring.couchbase.env.timeouts.query','7500','N1QL query operations timeout in milliseconds');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','COUCHBASE','spring.couchbase.env.timeouts.socket-connect','1000','Socket connect connections timeout in milliseconds');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','COUCHBASE','spring.couchbase.env.timeouts.view','7500','Regular and geospatial view operations timeout in milliseconds');
-
 -- DAO (PersistenceExceptionTranslationAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DAO','spring.dao.exceptiontranslation.enabled','true','Enable the PersistenceExceptionTranslationPostProcessor');
-
 -- CASSANDRA (CassandraProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','CASSANDRA','spring.data.cassandra.cluster-name','','Name of the Cassandra cluster');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','CASSANDRA','spring.data.cassandra.compression','','Compression supported by the Cassandra binary protocol');
@@ -545,18 +485,15 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','CASSANDRA','spring.data.cassandra.schema-action','none','Schema action to take at startup');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','CASSANDRA','spring.data.cassandra.ssl','false','Enable SSL support');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','CASSANDRA','spring.data.cassandra.username','','Login user of the server');
-
 -- DATA COUCHBASE (CouchbaseDataProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATA COUCHBASE','spring.data.couchbase.auto-index','false','Automatically create views and indexes');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATA COUCHBASE','spring.data.couchbase.consistency','read-your-own-writes','Consistency to apply by default on generated queries');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATA COUCHBASE','spring.data.couchbase.repositories.enabled','true','Enable Couchbase repositories');
-
 -- ELASTICSEARCH (ElasticsearchProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','ELASTICSEARCH','spring.data.elasticsearch.cluster-name','elasticsearch','Elasticsearch cluster name');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','ELASTICSEARCH','spring.data.elasticsearch.cluster-nodes','','Comma-separated list of cluster node addresses. If not specified, starts a client node');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','ELASTICSEARCH','spring.data.elasticsearch.properties.*','','Additional properties used to configure the client');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','ELASTICSEARCH','spring.data.elasticsearch.repositories.enabled','true','Enable Elasticsearch repositories');
-
 -- MONGODB (MongoProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','MONGODB','spring.data.mongodb.authentication-database','','Authentication database name');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','MONGODB','spring.data.mongodb.database','test','Database name');
@@ -568,10 +505,8 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','MONGODB','spring.data.mongodb.repositories.enabled','true','Enable Mongo repositories');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','MONGODB','spring.data.mongodb.uri','mongodb://localhost/test','Mongo database URI. When set, host and port are ignored');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','MONGODB','spring.data.mongodb.username','','Login user of the mongo server');
-
 -- DATA REDIS
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATA REDIS','spring.data.redis.repositories.enabled','true','Enable Redis repositories');
-
 -- NEO4J (Neo4jProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NEO4J','spring.data.neo4j.compiler','','Compiler to use');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NEO4J','spring.data.neo4j.embedded.enabled','true','Enable embedded mode if the embedded driver is available');
@@ -580,7 +515,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NEO4J','spring.data.neo4j.session.scope','singleton','Scope (lifetime) of the session');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NEO4J','spring.data.neo4j.uri','','URI used by the driver. Auto-detected by default');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NEO4J','spring.data.neo4j.username','','Login user of the server');
-
 -- DATA REST (RepositoryRestProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATA REST','spring.data.rest.base-path','','Base path to be used by Spring Data REST to expose repository resources');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATA REST','spring.data.rest.default-page-size','','Default size of pages');
@@ -591,12 +525,10 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATA REST','spring.data.rest.return-body-on-create','','Return a response body after creating an entity');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATA REST','spring.data.rest.return-body-on-update','','Return a response body after updating an entity');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATA REST','spring.data.rest.sort-param-name','','Name of the URL query string parameter that indicates what direction to sort results');
-
 -- SOLR (SolrProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','SOLR','spring.data.solr.host','http://127.0.0.1:8983/solr','Solr host. Ignored if "zk-host" is set');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','SOLR','spring.data.solr.repositories.enabled','true','Enable Solr repositories');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','SOLR','spring.data.solr.zk-host','','ZooKeeper host address in the form HOST:PORT');
-
 -- DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATASOURCE','spring.datasource.continue-on-error','false','Do not stop if an error occurs while initializing the database');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATASOURCE','spring.datasource.data','','Data (DML) script resource reference');
@@ -622,7 +554,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATASOURCE','spring.datasource.type','','Fully qualified name of the connection pool implementation to use. By default, it is auto-detected from the classpath');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATASOURCE','spring.datasource.url','','JDBC url of the database');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','DATASOURCE','spring.datasource.username','','');
-
 -- JEST (Elasticsearch HTTP client) (JestProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JEST','spring.elasticsearch.jest.connection-timeout','3000','Connection timeout in milliseconds');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JEST','spring.elasticsearch.jest.password','','Login password');
@@ -631,16 +562,13 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JEST','spring.elasticsearch.jest.read-timeout','3000','Read timeout in milliseconds');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JEST','spring.elasticsearch.jest.uris','http://localhost:9200','Comma-separated list of the Elasticsearch instances to use');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JEST','spring.elasticsearch.jest.username','','Login user');
-
 -- H2 Web Console (H2ConsoleProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','H2 Web Console','spring.h2.console.enabled','false','Enable the console');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','H2 Web Console','spring.h2.console.path','/h2-console','Path at which the console will be available');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','H2 Web Console','spring.h2.console.settings.trace','false','Enable trace output');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','H2 Web Console','spring.h2.console.settings.web-allow-others','false','Enable remote access');
-
 -- JOOQ (JooqAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JOOQ','spring.jooq.sql-dialect','','SQLDialect JOOQ used when communicating with the configured datasource. For instance POSTGRES');
-
 -- JPA (JpaBaseConfiguration, HibernateJpaAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JPA','spring.data.jpa.repositories.enabled','true','Enable JPA repositories.');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JPA','spring.jpa.database','','Target database to operate on, auto-detected by default. Can be alternatively set using the "databasePlatform" property');
@@ -654,12 +582,10 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JPA','spring.jpa.open-in-view','true','Register OpenEntityManagerInViewInterceptor. Binds a JPA EntityManager to the thread for the entire processing of the request');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JPA','spring.jpa.properties.*','','Additional native properties to set on the JPA provider');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JPA','spring.jpa.show-sql','false','Enable logging of SQL statements');
-
 -- JTA (JtaAutoConfiguration)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JTA','spring.jta.enabled','true','Enable JTA support');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JTA','spring.jta.log-dir','','Transaction logs directory');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','JTA','spring.jta.transaction-manager-id','','Transaction manager unique identifier');
-
 -- ATOMIKOS (AtomikosProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','ATOMIKOS','spring.jta.atomikos.connectionfactory.borrow-connection-timeout','30','Timeout, in seconds, for borrowing connections from the pool');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','ATOMIKOS','spring.jta.atomikos.connectionfactory.ignore-session-transacted-flag','true','Whether or not to ignore the transacted flag when creating session');
@@ -699,7 +625,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','ATOMIKOS','spring.jta.atomikos.properties.service','','Transaction manager implementation that should be started');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','ATOMIKOS','spring.jta.atomikos.properties.threaded-two-phase-commit','true','Use different (and concurrent) threads for two-phase commit on the participating resources');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','ATOMIKOS','spring.jta.atomikos.properties.transaction-manager-unique-name','','Transaction manager''s unique name');
-
 -- BITRONIX
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','BITRONIX','spring.jta.bitronix.connectionfactory.acquire-increment','1','Number of connections to create when growing the pool');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','BITRONIX','spring.jta.bitronix.connectionfactory.acquisition-interval','1','Time, in seconds, to wait before trying to acquire a connection again after an invalid connection was acquired');
@@ -764,7 +689,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','BITRONIX','spring.jta.bitronix.properties.server-id','','ASCII ID that must uniquely identify this TM instance. Default to the machine''s IP address');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','BITRONIX','spring.jta.bitronix.properties.skip-corrupted-logs','false','Skip corrupted transactions log entries');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','BITRONIX','spring.jta.bitronix.properties.warn-about-zero-resource-transaction','true','Log a warning for transactions executed without a single enlisted resource');
-
 -- NARAYANA (NarayanaProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NARAYANA','spring.jta.narayana.default-timeout','60','Transaction timeout in seconds');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NARAYANA','spring.jta.narayana.expiry-scanners','com.arjuna.ats.internal.arjuna.recovery.ExpiredTransactionStatusManagerScanner','Comma-separated list of expiry scanners');
@@ -779,14 +703,12 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NARAYANA','spring.jta.narayana.recovery-modules','','Comma-separated list of recovery modules');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NARAYANA','spring.jta.narayana.transaction-manager-id','1','Unique transaction manager id');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','NARAYANA','spring.jta.narayana.xa-resource-orphan-filters','','Comma-separated list of orphan filters');
-
 -- EMBEDDED MONGODB (EmbeddedMongoProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','EMBEDDED MONGODB','spring.mongodb.embedded.features','SYNC_DELAY','Comma-separated list of features to enable');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','EMBEDDED MONGODB','spring.mongodb.embedded.storage.databaseDir','','Directory used for data storage');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','EMBEDDED MONGODB','spring.mongodb.embedded.storage.oplogSize','','Maximum size of the oplog in megabytes');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','EMBEDDED MONGODB','spring.mongodb.embedded.storage.replSetName','','Name of the replica set');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','EMBEDDED MONGODB','spring.mongodb.embedded.version','2.6.10','Version of Mongo to use');
-
 -- REDIS (RedisProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','REDIS','spring.redis.cluster.max-redirects','','Maximum number of redirects to follow when executing commands across the cluster');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','REDIS','spring.redis.cluster.nodes','','Comma-separated list of "host:port" pairs to bootstrap from');
@@ -801,12 +723,9 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DA
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','REDIS','spring.redis.sentinel.master','','Name of Redis server');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','REDIS','spring.redis.sentinel.nodes','','Comma-separated list of host:port pairs');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DATA PROPERTIES','REDIS','spring.redis.timeout','0','Connection timeout in milliseconds');
-
-
 -- ----------------------------------------
 -- INTEGRATION PROPERTIES
 -- ----------------------------------------
-
 -- ACTIVEMQ (ActiveMQProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ACTIVEMQ','spring.activemq.broker-url','','URL of the ActiveMQ broker. Auto-generated by default. For instance tcp://localhost:61616');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ACTIVEMQ','spring.activemq.in-memory','true','Specify if the default broker URL should be in memory. Ignored if an explicit broker has been specified');
@@ -819,7 +738,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('IN
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ACTIVEMQ','spring.activemq.pool.expiry-timeout','0','Connection expiration timeout in milliseconds');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ACTIVEMQ','spring.activemq.pool.idle-timeout','30000','Connection idle timeout in milliseconds');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ACTIVEMQ','spring.activemq.pool.max-connections','1','Maximum number of pooled connections');
-
 -- ARTEMIS (ArtemisProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ARTEMIS','spring.artemis.embedded.cluster-password','','Cluster password. Randomly generated on startup by default');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ARTEMIS','spring.artemis.embedded.data-directory','','Journal file directory. Not necessary if persistence is turned off');
@@ -833,14 +751,12 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('IN
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ARTEMIS','spring.artemis.password','','Login password of the broker');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ARTEMIS','spring.artemis.port','61616','Artemis broker port');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','ARTEMIS','spring.artemis.user','','Login user of the broker');
-
 -- SPRING BATCH (BatchProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','SPRING BATCH','spring.batch.initializer.enabled','','Create the required batch tables on startup if necessary. Enabled automatically if no custom table prefix is set or if a custom schema is configured');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','SPRING BATCH','spring.batch.job.enabled','true','Execute all Spring Batch jobs in the context on startup');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','SPRING BATCH','spring.batch.job.names','','Comma-separated list of job names to execute on startup (For instance job1,job2). By default, all Jobs found in the context are executed');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','SPRING BATCH','spring.batch.schema','classpath:org/springframework/batch/core/schema-@@platform@@.sql','Path to the SQL file to use to initialize the database schema');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','SPRING BATCH','spring.batch.table-prefix','','Table prefix for all the batch meta-data tables');
-
 -- HORNETQ (HornetQProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','HORNETQ','spring.hornetq.embedded.cluster-password','','Cluster password. Randomly generated on startup by default');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','HORNETQ','spring.hornetq.embedded.data-directory','','Journal file directory. Not necessary if persistence is turned off');
@@ -854,7 +770,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('IN
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','HORNETQ','spring.hornetq.password','','Login password of the broker');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','HORNETQ','spring.hornetq.port','5445','HornetQ broker port');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','HORNETQ','spring.hornetq.user','','Login user of the broker');
-
 -- JMS (JmsProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','JMS','spring.jms.jndi-name','','Connection factory JNDI name. When set, takes precedence to others connection factory auto-configurations');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','JMS','spring.jms.listener.acknowledge-mode','','Acknowledge mode of the container. By default, the listener is transacted with automatic acknowledgment');
@@ -862,7 +777,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('IN
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','JMS','spring.jms.listener.concurrency','','Minimum number of concurrent consumers');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','JMS','spring.jms.listener.max-concurrency','','Maximum number of concurrent consumers');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','JMS','spring.jms.pub-sub-domain','false','Specify if the default destination type is topic');
-
 -- RABBIT (RabbitProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','RABBIT','spring.rabbitmq.addresses','','Comma-separated list of addresses to which the client should connect');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','RABBIT','spring.rabbitmq.cache.channel.checkout-timeout','','Number of milliseconds to wait to obtain a channel if the cache size has been reached');
@@ -906,12 +820,9 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('IN
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','RABBIT','spring.rabbitmq.template.retry.multiplier','1.0','A multiplier to apply to the previous publishing retry interval');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','RABBIT','spring.rabbitmq.username','','Login user to authenticate to the broker');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('INTEGRATION PROPERTIES','RABBIT','spring.rabbitmq.virtual-host','','Virtual host to use when connecting to the broker');
-
-
 -- ----------------------------------------
 -- ACTUATOR PROPERTIES
 -- ----------------------------------------
-
 -- ENDPOINTS (AbstractEndpoint subclasses)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS','endpoints.enabled','true','Enable endpoints');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS','endpoints.sensitive','','Default endpoint sensitive setting');
@@ -990,7 +901,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('AC
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS','endpoints.trace.id','','Endpoint identifier');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS','endpoints.trace.path','','Endpoint path');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS','endpoints.trace.sensitive','','Mark if the endpoint exposes sensitive information');
-
 -- ENDPOINTS CORS CONFIGURATION (EndpointCorsProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS CORS CONFIGURATION','endpoints.cors.allow-credentials','','Set whether credentials are supported. When not set, credentials are not supported');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS CORS CONFIGURATION','endpoints.cors.allowed-headers','','Comma-separated list of headers to allow in a request. * allows all headers');
@@ -998,16 +908,13 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('AC
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS CORS CONFIGURATION','endpoints.cors.allowed-origins','','Comma-separated list of origins to allow. * allows all origins. When not set, CORS support is disabled');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS CORS CONFIGURATION','endpoints.cors.exposed-headers','','Comma-separated list of headers to include in a response');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','ENDPOINTS CORS CONFIGURATION','endpoints.cors.max-age','1800','How long, in seconds, the response from a pre-flight request can be cached by clients');
-
 -- JMX ENDPOINT (EndpointMBeanExportProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','JMX ENDPOINT','endpoints.jmx.domain','','JMX domain name. Initialized with the value of spring.jmx.default-domain if set');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','JMX ENDPOINT','endpoints.jmx.enabled','true','Enable JMX export of all endpoints');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','JMX ENDPOINT','endpoints.jmx.static-names','','Additional static properties to append to all ObjectNames of MBeans representing Endpoints');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','JMX ENDPOINT','endpoints.jmx.unique-names','false','Ensure that ObjectNames are modified in case of conflict');
-
 -- JOLOKIA (JolokiaProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','JOLOKIA','jolokia.config.*','','See Jolokia manual');
-
 -- MANAGEMENT HTTP SERVER (ManagementServerProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','MANAGEMENT HTTP SERVER','management.add-application-context-header','true','Add the "X-Application-Context" HTTP header in each response');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','MANAGEMENT HTTP SERVER','management.address','','Network address that the management endpoints should bind to');
@@ -1031,7 +938,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('AC
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','MANAGEMENT HTTP SERVER','management.ssl.trust-store-password','','Password used to access the trust store. Requires a custom management.port');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','MANAGEMENT HTTP SERVER','management.ssl.trust-store-provider','','Provider for the trust store. Requires a custom management.port');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','MANAGEMENT HTTP SERVER','management.ssl.trust-store-type','','Type of the trust store. Requires a custom management.port');
-
 -- HEALTH INDICATORS (previously health.*)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','HEALTH INDICATORS','management.health.db.enabled','true','Enable database health check');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','HEALTH INDICATORS','management.health.defaults.enabled','true','Enable default health indicators');
@@ -1048,14 +954,12 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('AC
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','HEALTH INDICATORS','management.health.redis.enabled','true','Enable Redis health check');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','HEALTH INDICATORS','management.health.solr.enabled','true','Enable Solr health check');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','HEALTH INDICATORS','management.health.status.order','DOWN, OUT_OF_SERVICE, UNKNOWN, UP','Comma-separated list of health statuses in order of severity');
-
 -- INFO CONTRIBUTORS (InfoContributorProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','INFO CONTRIBUTORS','management.info.build.enabled','true','Enable build info');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','INFO CONTRIBUTORS','management.info.defaults.enabled','true','Enable default info contributors');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','INFO CONTRIBUTORS','management.info.env.enabled','true','Enable environment info');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','INFO CONTRIBUTORS','management.info.git.enabled','true','Enable git info');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','INFO CONTRIBUTORS','management.info.git.mode','simple','Mode to use to expose git information');
-
 -- REMOTE SHELL (ShellProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','REMOTE SHELL','management.shell.auth.type','simple','Authentication type. Auto-detected according to the environment');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','REMOTE SHELL','management.shell.auth.jaas.domain','my-domain','JAAS domain');
@@ -1075,10 +979,8 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('AC
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','REMOTE SHELL','management.shell.ssh.port','2000','SSH port');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','REMOTE SHELL','management.shell.telnet.enabled','false','Enable CRaSH telnet support. Enabled by default if the TelnetPlugin is  available');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','REMOTE SHELL','management.shell.telnet.port','5000','Telnet port');
-
 -- TRACING (TraceProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','TRACING','management.trace.include','request-headers,response-headers,cookies,errors','Items to be included in the trace');
-
 -- METRICS EXPORT (MetricExportProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','METRICS EXPORT','spring.metrics.export.aggregate.key-pattern','','Pattern that tells the aggregator what to do with the keys from the source repository');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','METRICS EXPORT','spring.metrics.export.aggregate.prefix','','Prefix for global repository if active');
@@ -1093,12 +995,9 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('AC
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','METRICS EXPORT','spring.metrics.export.statsd.port','8125','Port of a statsd server to receive exported metrics');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','METRICS EXPORT','spring.metrics.export.statsd.prefix','','Prefix for statsd exported metrics');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('ACTUATOR PROPERTIES','METRICS EXPORT','spring.metrics.export.triggers.*','','Specific trigger properties per MetricWriter bean name');
-
-
 -- ----------------------------------------
 -- DEVTOOLS PROPERTIES
 -- ----------------------------------------
-
 -- DEVTOOLS (DevToolsProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DEVTOOLS PROPERTIES','DEVTOOLS','spring.devtools.livereload.enabled','true','Enable a livereload.com compatible server');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DEVTOOLS PROPERTIES','DEVTOOLS','spring.devtools.livereload.port','35729','Server port');
@@ -1109,7 +1008,6 @@ insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DE
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DEVTOOLS PROPERTIES','DEVTOOLS','spring.devtools.restart.poll-interval','1000','Amount of time (in milliseconds) to wait between polling for classpath changes');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DEVTOOLS PROPERTIES','DEVTOOLS','spring.devtools.restart.quiet-period','400','Amount of quiet time (in milliseconds) required without any classpath changes before a restart is triggered');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DEVTOOLS PROPERTIES','DEVTOOLS','spring.devtools.restart.trigger-file','','Name of a specific file that when changed will trigger the restart check. If not specified any classpath file change will trigger the restart');
-
 -- REMOTE DEVTOOLS (RemoteDevToolsProperties)
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DEVTOOLS PROPERTIES','REMOTE DEVTOOLS','spring.devtools.remote.context-path','/.~~spring-boot!~','Context path used to handle the remote connection');
 insert into propriedade(categoria,subcategoria,nome,valor,descricao) values ('DEVTOOLS PROPERTIES','REMOTE DEVTOOLS','spring.devtools.remote.debug.enabled','true','Enable remote debug support');
