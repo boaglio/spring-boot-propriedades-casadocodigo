@@ -1,67 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
  <title>Spring Boot Properties</title>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" type="text/css"	href="webjars/bootstrap/4.5.2/css/bootstrap.min.css" />
- <link rel="stylesheet" type="text/css"	href="webjars/EasyAutocomplete/1.3.3/dist/easy-autocomplete.themes.css" />
+ <link rel="stylesheet" type="text/css"	href="webjars/bootstrap/5.3.2/css/bootstrap.min.css" />
+ <link rel="stylesheet" type="text/css"	href="webjars/EasyAutocomplete/1.3.6/dist/easy-autocomplete.themes.css" />
 </head>
-<body>
+<body style="background-color:#F0F8FF;margin:10px">
  <div class="container">
-  <script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="webjars/EasyAutocomplete/1.3.3/dist/jquery.easy-autocomplete.js"></script>  
+  <script type="text/javascript" src="webjars/jquery/3.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="webjars/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="webjars/EasyAutocomplete/1.3.6/dist/jquery.easy-autocomplete.js"></script>
   <script type="text/javascript">
 	$(document).ready(function () {
-
 		var options = {
 			url: function (filtro) {
-				return '/api/find/';
+				return '/api/find';
 			},
-
 			getValue: function (element) {
-				
 				valorPadrao=" "
 				if (element.valor)
 					valorPadrao = "( default: "+element.valor+") "
-					
-				return "["+element.nome + "] <i>" + element.categoria +" </i> - <b>" + element.nome +"</b>  " + valorPadrao + " - "+ element.descricao ;
+				return "<b>" + element.categoria +"</b> ["+element.nome + "] <i> " + valorPadrao + "</i> - "+ element.descricao;
 			},
-
 			ajaxSettings: {
 				dataType: 'json',
 				method: 'GET',
-				data: {					
-				}
+				data: {}
 			},
-
 			preparePostData: function (data) {
 				data.filtro = $('#search').val();
 				return data;
 			},
-
 			theme: "square",
-			
 			list: {
-				maxNumberOfElements: 15
+				maxNumberOfElements: 100
 			},
-			
 			requestDelay: 400
 		};
-		
 		$('#search').easyAutocomplete(options);
+		$('#search').trigger( "focus");
 	});
 </script>
-<div class="jumbotron">
-  <h1>
-   <img alt="Spring" class="block" id="springlogo" src="spring-logo.svg" width="300">
-   <a href="http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html" target="_BLANK">Spring Boot Properties</a>
-  </h1>
-  <form>
-	Buscar:
-   <input type="text" id="search" autofocus="autofocus"  class="form-control" />
-  </form>
-</div>
-</div>
-</body>
+    <div class="jumbotron jumbotron-fluid">
+      <h1 class="display-4 d-flex justify-content-center">
+       <img alt="Spring" class="block" id="springlogo" src="spring-logo.svg" width="200">
+       <a href="http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html" target="_BLANK" class="btn btn-primary btn-lg" role="button">Spring Boot Properties</a>
+      </h1>
+      <form onsubmit="return false;">
+          <label for="search">Buscar:</label>
+          <input type="text" id="search" class="form-control" />
+      </form>
+    </div>
+  </div>
+ </body>
 </html>

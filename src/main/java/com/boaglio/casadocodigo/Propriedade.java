@@ -1,8 +1,10 @@
 package com.boaglio.casadocodigo;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
-import javax.persistence.Id;
+import jakarta.persistence.Id;
+
+import java.util.Objects;
 
 @Entity
 public class Propriedade {
@@ -49,34 +51,26 @@ public class Propriedade {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Propriedade that = (Propriedade) o;
+		return Objects.equals(nome, that.nome);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Propriedade other = (Propriedade) obj;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		return true;
+	public int hashCode() {
+		return Objects.hash(nome);
 	}
 
 	@Override
 	public String toString() {
-		return "Propriedade [nome=" + nome + ", valor=" + valor + ", descricao=" + descricao + ", categoria="
-				+ categoria + "]";
+		return "Propriedade{" +
+				"nome='" + nome + '\'' +
+				", valor='" + valor + '\'' +
+				", descricao='" + descricao + '\'' +
+				", categoria='" + categoria + '\'' +
+				'}';
 	}
 
 }

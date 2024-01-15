@@ -1,14 +1,21 @@
 package com.boaglio.casadocodigo;
 
+import org.springframework.data.repository.CrudRepository;
+
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.repository.query.Param;
+public interface PropriedadeRepository extends CrudRepository<Propriedade, String> {
 
-public interface PropriedadeRepository extends PagingAndSortingRepository<Propriedade, String> {
+	/*
+	 Método para encontrar propriedades por filtro
 
-	@Query("Select c from Propriedade c where c.nome like %:filtro% order by categoria,nome")
-	public List<Propriedade> findByFiltro(@Param("filtro") String filtro);
+	 Usa o Spring Data para fazer essa Query:
+
+	 SELECT *
+	 FROM Propriedade
+	 WHERE nome LIKE %:filtro%
+	 ORDER BY categoria,nome
+	 */
+     List<Propriedade> findByNomeContainingIgnoreCaseOrderByCategoriaAscNomeAsc(String filtro);
 
 }

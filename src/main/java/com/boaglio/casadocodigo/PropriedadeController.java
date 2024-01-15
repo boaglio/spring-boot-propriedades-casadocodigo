@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class PropriedadeController {
 
-	@Autowired
-	private PropriedadeRepository repository;
+	private final PropriedadeRepository repository;
 
-	@GetMapping("/find")
+    public PropriedadeController(PropriedadeRepository repository) {
+        this.repository = repository;
+    }
+
+    @GetMapping("/find")
 	List<Propriedade> findByFiltro(@RequestParam("filtro") String filtro) {
-		return repository.findByFiltro(filtro);
+		return repository.findByNomeContainingIgnoreCaseOrderByCategoriaAscNomeAsc(filtro);
 	}
 
 }
